@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="items">
+	<select id="selectItem" resultMap="itemResult">
+		SELECT
+			item.ID AS id,
+			item.NAME AS name,
+			detail.DETAIL_ID AS detailId,
+			detail.DETAIL_NAME AS detailName,
+			detail.PRICE AS price,
+			detail.SALE_START AS saleStart,
+			detail.SALE_END AS saleEnd
+		FROM
+			ITEM item
+		INNER JOIN
+			ITEM_DETAIL detail
+		ON
+			item.ID = detail.ID
+	</select>
+
+	<select id="selectItemIgnoreDetailNoExist" resultMap="itemResult">
+		SELECT
+			item.ID AS id,
+			item.NAME AS name,
+			detail.DETAIL_ID AS detailId,
+			detail.DETAIL_NAME AS detailName,
+			detail.PRICE AS price,
+			detail.SALE_START AS saleStart,
+			detail.SALE_END AS saleEnd
+		FROM
+			ITEM item
+		LEFT JOIN
+			ITEM_DETAIL detail
+		ON
+			item.ID = detail.ID
+	</select>
+
+	<resultMap type="com.github.apz.springsample.model.Item" id="itemResult">
+		<id column="id" property="id"/>
+		<result column="name" property="name" />
+		<collection property="details" ofType="com.github.apz.springsample.model.ItemDetail">
+			<result column="detailId" property="detailId"/>
+			<result column="detailName" property="detailName"/>
+			<result column="price" property="price"/>
+			<result column="saleStart" property="saleStart"/>
+			<result column="saleEnd" property="saleEnd"/>
+		</collection>
+	</resultMap>
+</mapper>
