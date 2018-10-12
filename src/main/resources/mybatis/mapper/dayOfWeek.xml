@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dayOfWeek">
+	<select id="onService" resultType="com.github.apz.springsample.model.StoreOpenDayOfWeek" >
+		SELECT
+			week.STORE_ID AS storeId,
+			store.STORE_NAME as storeName,
+			dayOfWeekCodeDef.DAY_OF_WEEK_CODE as dayOfWeekCode,
+			CASE dayOfWeekCodeDef.DAY_OF_WEEK_CODE
+				WHEN 0 THEN week.SUNDAY
+				WHEN 1 THEN week.MONDAY
+				WHEN 2 THEN week.TUESDAY
+				WHEN 3 THEN week.WEDNESDAY
+				WHEN 4 THEN week.THURSDAY
+				WHEN 5 THEN week.FRIDAY
+				WHEN 6 THEN week.SATURDAY
+				WHEN 7 THEN week.HOLIDAY
+			END AS onServiceFlag
+		FROM
+			DAY_OF_WEEK week
+		INNER JOIN
+			STORE_INFO store
+			ON store.STORE_ID = week.STORE_ID
+		CROSS JOIN
+			DAY_OF_WEEK_CODE_DEF dayOfWeekCodeDef
+	</select>
+</mapper>
