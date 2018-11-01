@@ -2,6 +2,7 @@ mybatis:
   config-location: classpath:/mybatis/mybatis-config.xml
   mapper-locations:
   - classpath*:/mybatis/mapper/**/*.xml
+  type-handlers-package: com.github.apz.springsample.domain.typehandler
 spring:
   datasource:
     url: jdbc:h2:file:./target/h2db

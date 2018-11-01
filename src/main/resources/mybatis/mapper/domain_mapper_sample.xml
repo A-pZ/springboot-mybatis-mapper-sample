@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="domain_mapper_sample">
+	<select id="searchAllFoodItem" resultType="com.github.apz.springsample.domain.model.FoodItem">
+		SELECT
+			item.ID AS foodCode,
+			item.NAME AS foodName
+		FROM
+			Item item
+	</select>
+</mapper>
