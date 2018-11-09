@@ -12,7 +12,7 @@
 	</select>
 
 	<resultMap type="com.github.apz.springsample.domain.model.FoodItem" id="foodItem">
-		<result column="foodCode" property="foodCode" typeHandler="com.github.apz.springsample.domain.typehandler.FoodCodeTypeHandler" />
+		<result column="foodCode" property="foodCode" typeHandler="com.github.apz.springsample.domain.typehandler.DomainValueTypeHandler" />
 		<result column="foodName" property="foodName"/>
 	</resultMap>
 </mapper>

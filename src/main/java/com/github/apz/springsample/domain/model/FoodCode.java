@@ -3,14 +3,21 @@
  */
 package com.github.apz.springsample.domain.model;
 
-import lombok.Getter;
-import lombok.Setter;
-
 /**
  * @author a-pz
  *
  */
-@Getter @Setter
-public class FoodCode {
+public class FoodCode extends DomainValue<Integer>{
+
 	private Integer value;
+
+	@Override
+	public Integer getValue() {
+		return value;
+	}
+
+	@Override
+	public void setValue(Integer value) {
+		this.value = value;
+	}
 }
