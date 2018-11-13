@@ -9,6 +9,10 @@ package com.github.apz.springsample.domain.model;
  */
 public class FoodCode extends DomainValue<Integer>{
 
+//	public FoodCode(Integer value) {
+//		super(value);
+//	}
+
 	private Integer value;
 
 	@Override
