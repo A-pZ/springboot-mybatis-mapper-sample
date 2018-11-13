@@ -25,21 +25,15 @@ public class FoodCodeTypeHandler implements TypeHandler<FoodCode> {
 	}
 
 	public FoodCode getResult(ResultSet rs, String columnName) throws SQLException {
-		FoodCode foodCode = new FoodCode();
-		foodCode.setValue(rs.getInt(columnName));
-		return foodCode;
+		return new FoodCode(rs.getInt(columnName));
 	}
 
 	public FoodCode getResult(ResultSet rs, int columnIndex) throws SQLException {
-		FoodCode foodCode = new FoodCode();
-		foodCode.setValue(rs.getInt(columnIndex));
-		return foodCode;
+		return new FoodCode(rs.getInt(columnIndex));
 	}
 
 	public FoodCode getResult(CallableStatement cs, int columnIndex) throws SQLException {
-		FoodCode foodCode = new FoodCode();
-		foodCode.setValue(cs.getInt(columnIndex));
-		return foodCode;
+		return new FoodCode(cs.getInt(columnIndex));
 	}
 
 }
