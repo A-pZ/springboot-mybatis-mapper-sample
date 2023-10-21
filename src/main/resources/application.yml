@@ -5,7 +5,10 @@ mybatis:
   type-handlers-package: com.github.apz.springsample.domain.typehandler
 spring:
   datasource:
-    url: jdbc:h2:file:./target/h2db
-    username: sa
+    # url: jdbc:h2:file:./target/h2db
+    # username: sa
+    url: jdbc:mariadb://127.0.0.1:3306/test
+    username: root
+    password: password
   flyway:
     enabled: false
