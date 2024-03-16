@@ -22,10 +22,10 @@ public class ItemSearchRepository {
 	private final SqlSessionTemplate sqlSessionTemplate;
 
 	public List<Item> searchAllItems() {
-		return sqlSessionTemplate.selectList("items.selectItem");
+		return sqlSessionTemplate.selectList("searchAllItems");
 	}
 
 	public List<Item> selectItemIgnoreDetailNoExist() {
-		return sqlSessionTemplate.selectList("items.selectItemIgnoreDetailNoExist");
+		return sqlSessionTemplate.selectList("selectItemIgnoreDetailNoExist");
 	}
 }

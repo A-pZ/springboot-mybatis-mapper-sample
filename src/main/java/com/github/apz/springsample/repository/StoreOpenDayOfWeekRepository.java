@@ -5,23 +5,23 @@ package com.github.apz.springsample.repository;
 
 import java.util.List;
 
-import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.github.apz.springsample.mapper.StoreScheduleMapper;
 import com.github.apz.springsample.model.StoreOpenDayOfWeek;
 
-import lombok.RequiredArgsConstructor;
+import lombok.AllArgsConstructor;
 
 /**
  * @author a-pz
  *
  */
 @Repository
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class StoreOpenDayOfWeekRepository {
-	private final SqlSessionTemplate sqlSessionTemplate;
+	StoreScheduleMapper storeScheduleMapper; 
 
 	public List<StoreOpenDayOfWeek> searchStoreOpenDayOfWeek() {
-		return sqlSessionTemplate.selectList("dayOfWeek.onService");
+		return storeScheduleMapper.openDayOfWeek();
 	}
 }
